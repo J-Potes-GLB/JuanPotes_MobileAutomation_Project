@@ -19,6 +19,15 @@ public class HomeStartScreen extends BaseScreen {
     }
 
     public boolean isTitleDisplayed(){
-        return isWebElementDisplayed(this.webDriverTitle);
+        return this.webDriverTitle.isDisplayed();
+    }
+
+    public boolean areImagesDisplayed(){
+        for (WebElement image : homeImages){
+            if (image.isDisplayed() == false){
+                return false;
+            }
+        }
+        return true;
     }
 }
