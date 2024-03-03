@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="C:/Users/juan.potes/Documents/TAE Training/Mobile Automation/JuanPotes_MobileAutomation_Project/src/test/resources">
         <classes>
-
+            <class name="com.projectMobileJP.tests.NavigationOfButtonMenuTest"></class>
         </classes>
     </test>
 </suite>

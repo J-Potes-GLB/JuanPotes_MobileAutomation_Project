@@ -1,5 +1,6 @@
 package com.projectMobileJP.utils.tests;
 
+import com.projectMobileJP.screens.HomeStartScreen;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.testng.annotations.BeforeMethod;
@@ -49,5 +50,9 @@ public class BaseTest {
 
     public static String getCapability(String variable){
         return properties.getProperty(variable);
+    }
+
+    public HomeStartScreen getHomeStartScreen(){
+        return new HomeStartScreen(driver);
     }
 }
