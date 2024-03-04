@@ -14,7 +14,6 @@ public class NavigationOfButtonMenuTest extends BaseTest {
         WebviewScreen webviewScreen = homeStartScreen.clickWebviewMenuButton();
 
         // Verify that elements of the Webview screen are displayed
-//        webviewScreen.waitSeconds(7);
         Assert.assertTrue(webviewScreen.isGetStartedButtonDisplayed());
         Assert.assertEquals(webviewScreen.getGetStartedButtonText(), WebviewScreen.GET_STARTED_TEXT);
         Assert.assertTrue(webviewScreen.isSearchButtonDisplayed());
@@ -51,5 +50,15 @@ public class NavigationOfButtonMenuTest extends BaseTest {
         DragScreen dragScreen = swipeScreen.clickDragMenuButton();
 
         // Verify that elements of the Drag screen are displayed
+        Assert.assertTrue(dragScreen.isDragAndDropTitleDisplayed());
+        Assert.assertEquals(dragScreen.getDragAndDropTitleText(), DragScreen.DRAG_AND_DROP_TITLE_TEXT);
+        Assert.assertTrue(dragScreen.isRenewButtonDisplayed());
+
+        // Click on the Home button from the bottom menu
+        homeStartScreen = dragScreen.clickHomeMenuButton();
+
+        // Verify that elements of the Home screen are displayed
+        Assert.assertTrue(homeStartScreen.isTitleDisplayed());
+        Assert.assertTrue(homeStartScreen.areImagesDisplayed());
     }
 }

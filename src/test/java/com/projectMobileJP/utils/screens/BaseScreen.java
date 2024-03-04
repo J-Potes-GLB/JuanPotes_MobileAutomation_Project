@@ -17,6 +17,9 @@ public class BaseScreen {
     protected AndroidDriver driver;
     protected WebDriverWait wait;
 
+    @AndroidFindBy(uiAutomator = "UiSelector().className(\"android.view.View\").description(\"Home\")")
+    protected WebElement homeMenuButton;
+
     @AndroidFindBy(uiAutomator = "UiSelector().className(\"android.view.View\").description(\"Webview\")")
     protected WebElement webviewMenuButton;
 
@@ -84,5 +87,11 @@ public class BaseScreen {
         waitUntilVisibleElement(dragMenuButton);
         dragMenuButton.click();
         return new DragScreen(driver);
+    }
+
+    public HomeStartScreen clickHomeMenuButton() {
+        waitUntilVisibleElement(homeMenuButton);
+        homeMenuButton.click();
+        return new HomeStartScreen(driver);
     }
 }
