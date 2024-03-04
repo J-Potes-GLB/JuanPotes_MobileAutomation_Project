@@ -8,18 +8,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class NavigationOfButtonMenuTest extends BaseTest {
-    HomeStartScreen homeStartScreen;
-
-    @BeforeMethod
-    public void precondition(){
-        // Open app on the first screen
-        homeStartScreen = getHomeStartScreen();
-
-        // Verify the title of the Home screen is displayed
-        Assert.assertTrue(homeStartScreen.isTitleDisplayed());
-        Assert.assertTrue(homeStartScreen.areImagesDisplayed());
-    }
-
     @Test
     public void navigateBottomMenu(){
         // Click on the Webview button from the bottom menu

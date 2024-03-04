@@ -3,6 +3,7 @@ package com.projectMobileJP.utils.tests;
 import com.projectMobileJP.screens.HomeStartScreen;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 
 import java.io.FileInputStream;
@@ -15,6 +16,8 @@ public class BaseTest {
     private static final String PROPERTIES_FILE = "src/test/resources/config.properties";
     private static final Properties properties = new Properties();
     public static AndroidDriver driver;
+
+    protected HomeStartScreen homeStartScreen;
 
     // Methods for environment and capabilities set up
     // Taken from the Framework example shown on the TAE Mobile Training
@@ -29,6 +32,8 @@ public class BaseTest {
         catch(MalformedURLException exception){
             System.out.println(exception.getMessage());
         }
+
+        openFirstScreen();
     }
 
     public void loadProperties(){
@@ -54,5 +59,14 @@ public class BaseTest {
 
     public HomeStartScreen getHomeStartScreen(){
         return new HomeStartScreen(driver);
+    }
+
+    public void openFirstScreen(){
+        // Open app on the first screen
+        homeStartScreen = getHomeStartScreen();
+
+        // Verify the title of the Home screen is displayed
+        Assert.assertTrue(homeStartScreen.isTitleDisplayed());
+        Assert.assertTrue(homeStartScreen.areImagesDisplayed());
     }
 }
