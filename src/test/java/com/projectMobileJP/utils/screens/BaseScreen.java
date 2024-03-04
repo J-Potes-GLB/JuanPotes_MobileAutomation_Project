@@ -20,10 +20,13 @@ public class BaseScreen {
     protected WebDriverWait wait;
 
     @AndroidFindBy(uiAutomator = "UiSelector().className(\"android.view.View\").description(\"Webview\")")
-    protected WebElement webviewButton;
+    protected WebElement webviewMenuButton;
 
     @AndroidFindBy(uiAutomator = "UiSelector().className(\"android.view.View\").description(\"Login\")")
-    protected WebElement loginButton;
+    protected WebElement loginMenuButton;
+
+    @AndroidFindBy(uiAutomator = "UiSelector().className(\"android.view.View\").description(\"Forms\")")
+    protected WebElement formsMenuButton;
 
     public BaseScreen(AndroidDriver driver){
         this.driver = driver;
@@ -50,16 +53,20 @@ public class BaseScreen {
 
     // Click on Bottom Menu Elements
     public WebviewScreen clickWebviewMenuButton() {
-        waitUntilVisibleElement(webviewButton);
-        webviewButton.click();
+        waitUntilVisibleElement(webviewMenuButton);
+        webviewMenuButton.click();
         return new WebviewScreen(driver);
     }
 
     public LoginScreen clickLoginMenuButton(){
-        waitUntilVisibleElement(loginButton);
-        loginButton.click();
+        waitUntilVisibleElement(loginMenuButton);
+        loginMenuButton.click();
         return new LoginScreen(driver);
     }
 
-
+    public FormsScreen clickFormsMenuButton() {
+        waitUntilVisibleElement(formsMenuButton);
+        formsMenuButton.click();
+        return new FormsScreen(driver);
+    }
 }

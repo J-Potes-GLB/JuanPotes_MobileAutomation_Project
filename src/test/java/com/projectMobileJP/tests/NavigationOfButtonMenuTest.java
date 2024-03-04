@@ -1,5 +1,6 @@
 package com.projectMobileJP.tests;
 
+import com.projectMobileJP.screens.FormsScreen;
 import com.projectMobileJP.screens.HomeStartScreen;
 import com.projectMobileJP.screens.LoginScreen;
 import com.projectMobileJP.screens.WebviewScreen;
@@ -46,6 +47,7 @@ public class NavigationOfButtonMenuTest extends BaseTest {
         Assert.assertEquals(loginScreen.getSignupTabButtonText(), LoginScreen.SIGNUP_TAB_TEXT);
 
         // Click on the Forms button from the bottom menu
+        FormsScreen formsScreen = loginScreen.clickFormsMenuButton();
 
         // Verify that elements of the Forms screen are displayed
 
