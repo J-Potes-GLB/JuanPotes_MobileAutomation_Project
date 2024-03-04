@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class BaseScreen {
     protected AndroidDriver driver;
@@ -43,5 +44,9 @@ public class BaseScreen {
         waitUntilVisibleElement(webviewButton);
         webviewButton.click();
         return new WebviewScreen(driver);
+    }
+
+    public void waitSeconds(int seconds){
+        driver.manage().timeouts().implicitlyWait(seconds, TimeUnit.SECONDS);
     }
 }

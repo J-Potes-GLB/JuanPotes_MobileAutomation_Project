@@ -29,6 +29,10 @@ public class NavigationOfButtonMenuTest extends BaseTest {
         WebviewScreen webviewScreen = homeStartScreen.clickWebviewButton();
 
         // Verify that elements of the Webview screen are displayed
+        Assert.assertTrue(webviewScreen.isGetStartedButtonDisplayed());
+        Assert.assertEquals(webviewScreen.getGetStartedButtonText(), WebviewScreen.GET_STARTED_TEXT);
+        Assert.assertTrue(webviewScreen.isSearchButtonDisplayed());
+        Assert.assertEquals(webviewScreen.getSearchButtonText(), WebviewScreen.SEARCH_BUTTON_TEXT);
 
         // Click on the Login button from the bottom menu
 
