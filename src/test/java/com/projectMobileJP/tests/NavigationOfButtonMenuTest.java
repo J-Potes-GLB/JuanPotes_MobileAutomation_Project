@@ -1,6 +1,7 @@
 package com.projectMobileJP.tests;
 
 import com.projectMobileJP.screens.HomeStartScreen;
+import com.projectMobileJP.screens.LoginScreen;
 import com.projectMobileJP.screens.WebviewScreen;
 import com.projectMobileJP.utils.tests.BaseTest;
 import org.testng.Assert;
@@ -26,17 +27,23 @@ public class NavigationOfButtonMenuTest extends BaseTest {
         // precondition();
 
         // Click on the Webview button from the bottom menu
-        WebviewScreen webviewScreen = homeStartScreen.clickWebviewButton();
+        WebviewScreen webviewScreen = homeStartScreen.clickWebviewMenuButton();
 
         // Verify that elements of the Webview screen are displayed
+//        webviewScreen.waitSeconds(7);
         Assert.assertTrue(webviewScreen.isGetStartedButtonDisplayed());
         Assert.assertEquals(webviewScreen.getGetStartedButtonText(), WebviewScreen.GET_STARTED_TEXT);
         Assert.assertTrue(webviewScreen.isSearchButtonDisplayed());
         Assert.assertEquals(webviewScreen.getSearchButtonText(), WebviewScreen.SEARCH_BUTTON_TEXT);
 
         // Click on the Login button from the bottom menu
+        LoginScreen loginScreen = webviewScreen.clickLoginMenuButton();
 
         // Verify that elements of the Login screen are displayed
+        Assert.assertTrue(loginScreen.isLoginTabButtonDisplayed());
+        Assert.assertEquals(loginScreen.getLoginTabButtonText(), LoginScreen.LOGIN_TAB_TEXT);
+        Assert.assertTrue(loginScreen.isSignupTabButtonDisplayed());
+        Assert.assertEquals(loginScreen.getSignupTabButtonText(), LoginScreen.SIGNUP_TAB_TEXT);
 
         // Click on the Forms button from the bottom menu
 

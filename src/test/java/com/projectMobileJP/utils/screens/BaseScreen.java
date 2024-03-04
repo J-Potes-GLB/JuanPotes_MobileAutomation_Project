@@ -1,5 +1,7 @@
 package com.projectMobileJP.utils.screens;
 
+import com.projectMobileJP.screens.FormsScreen;
+import com.projectMobileJP.screens.LoginScreen;
 import com.projectMobileJP.screens.WebviewScreen;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -20,6 +22,9 @@ public class BaseScreen {
     @AndroidFindBy(uiAutomator = "UiSelector().className(\"android.view.View\").description(\"Webview\")")
     protected WebElement webviewButton;
 
+    @AndroidFindBy(uiAutomator = "UiSelector().className(\"android.view.View\").description(\"Login\")")
+    protected WebElement loginButton;
+
     public BaseScreen(AndroidDriver driver){
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -39,14 +44,22 @@ public class BaseScreen {
         return wait;
     }
 
+    public void waitSeconds(int seconds){
+        driver.manage().timeouts().implicitlyWait(seconds, TimeUnit.SECONDS);
+    }
+
     // Click on Bottom Menu Elements
-    public WebviewScreen clickWebviewButton() {
+    public WebviewScreen clickWebviewMenuButton() {
         waitUntilVisibleElement(webviewButton);
         webviewButton.click();
         return new WebviewScreen(driver);
     }
 
-    public void waitSeconds(int seconds){
-        driver.manage().timeouts().implicitlyWait(seconds, TimeUnit.SECONDS);
+    public LoginScreen clickLoginMenuButton(){
+        waitUntilVisibleElement(loginButton);
+        loginButton.click();
+        return new LoginScreen(driver);
     }
+
+
 }

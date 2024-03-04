@@ -20,6 +20,7 @@ public class WebviewScreen extends BaseScreen {
     }
 
     public boolean isGetStartedButtonDisplayed(){
+        waitUntilVisibleElement(this.getStartedButton);
         return this.getStartedButton.isDisplayed();
     }
 
@@ -28,6 +29,7 @@ public class WebviewScreen extends BaseScreen {
     }
 
     public boolean isSearchButtonDisplayed(){
+        waitUntilVisibleElement(this.searchButton);
         return this.searchButton.isDisplayed();
     }
 
