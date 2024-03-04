@@ -34,8 +34,7 @@ public class LoginScreen extends BaseScreen {
     }
 
     public boolean isLoginTabButtonDisplayed(){
-        waitUntilVisibleElement(this.loginTabButton);
-        return this.loginTabButton.isDisplayed();
+        return isElementDisplayed(this.loginTabButton);
     }
 
     public String getLoginTabButtonText(){
@@ -43,8 +42,7 @@ public class LoginScreen extends BaseScreen {
     }
 
     public boolean isSignupTabButtonDisplayed(){
-        waitUntilVisibleElement(this.signupTabButton);
-        return this.signupTabButton.isDisplayed();
+        return isElementDisplayed(this.signupTabButton);
     }
 
     public String getSignupTabButtonText(){

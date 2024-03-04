@@ -20,8 +20,7 @@ public class SwipeScreen extends BaseScreen {
     }
 
     public boolean isSwipeHorizontalTitleDisplayed(){
-        waitUntilVisibleElement(this.swipeHorizontalTitle);
-        return this.swipeHorizontalTitle.isDisplayed();
+        return isElementDisplayed(this.swipeHorizontalTitle);
     }
 
     public String getSwipeSwipeHorizontalTitleText(){
@@ -29,8 +28,7 @@ public class SwipeScreen extends BaseScreen {
     }
 
     public boolean isSwipeVerticalSubtitleDisplayed(){
-        waitUntilVisibleElement(this.swipeVerticalSubtitle);
-        return this.swipeVerticalSubtitle.isDisplayed();
+        return isElementDisplayed(this.swipeVerticalSubtitle);
     }
 
     public String getSwipeVerticalSubtitleText(){

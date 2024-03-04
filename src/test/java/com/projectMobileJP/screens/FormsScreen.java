@@ -20,8 +20,7 @@ public class FormsScreen extends BaseScreen {
     }
 
     public boolean isFormComponentsTitleDisplayed(){
-        waitUntilVisibleElement(this.formComponentsTitle);
-        return this.formComponentsTitle.isDisplayed();
+        return isElementDisplayed(this.formComponentsTitle);
     }
 
     public String getFormTitleText(){
@@ -29,8 +28,7 @@ public class FormsScreen extends BaseScreen {
     }
 
     public boolean isDropdownDisplayed(){
-        waitUntilVisibleElement(this.dropdown);
-        return this.dropdown.isDisplayed();
+        return isElementDisplayed(this.dropdown);
     }
 
     public String getDropdownText(){

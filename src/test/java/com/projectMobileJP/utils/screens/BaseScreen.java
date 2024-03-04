@@ -58,6 +58,11 @@ public class BaseScreen {
         driver.manage().timeouts().implicitlyWait(seconds, TimeUnit.SECONDS);
     }
 
+    public boolean isElementDisplayed(WebElement element){
+        waitUntilVisibleElement(element);
+        return element.isDisplayed();
+    }
+
     // Click on Bottom Menu Elements
     public WebviewScreen clickWebviewMenuButton() {
         waitUntilVisibleElement(webviewMenuButton);
