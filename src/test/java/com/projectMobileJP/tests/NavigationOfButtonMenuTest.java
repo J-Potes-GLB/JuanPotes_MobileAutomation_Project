@@ -1,9 +1,6 @@
 package com.projectMobileJP.tests;
 
-import com.projectMobileJP.screens.FormsScreen;
-import com.projectMobileJP.screens.HomeStartScreen;
-import com.projectMobileJP.screens.LoginScreen;
-import com.projectMobileJP.screens.WebviewScreen;
+import com.projectMobileJP.screens.*;
 import com.projectMobileJP.utils.tests.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -54,6 +51,7 @@ public class NavigationOfButtonMenuTest extends BaseTest {
         Assert.assertEquals(formsScreen.getDropdownText(), FormsScreen.DROPDOWN_DEFAULT_TEXT);
 
         // Click on the Swipe button from the bottom menu
+        SwipeScreen swipeScreen = formsScreen.clickSwipeMenuButton();
 
         // Verify that elements of the Swipe screen are displayed
 

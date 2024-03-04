@@ -2,6 +2,7 @@ package com.projectMobileJP.utils.screens;
 
 import com.projectMobileJP.screens.FormsScreen;
 import com.projectMobileJP.screens.LoginScreen;
+import com.projectMobileJP.screens.SwipeScreen;
 import com.projectMobileJP.screens.WebviewScreen;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -27,6 +28,9 @@ public class BaseScreen {
 
     @AndroidFindBy(uiAutomator = "UiSelector().className(\"android.view.View\").description(\"Forms\")")
     protected WebElement formsMenuButton;
+
+    @AndroidFindBy(uiAutomator = "UiSelector().className(\"android.view.View\").description(\"Swipe\")")
+    protected WebElement swipeMenuButton;
 
     public BaseScreen(AndroidDriver driver){
         this.driver = driver;
@@ -68,5 +72,11 @@ public class BaseScreen {
         waitUntilVisibleElement(formsMenuButton);
         formsMenuButton.click();
         return new FormsScreen(driver);
+    }
+
+    public SwipeScreen clickSwipeMenuButton() {
+        waitUntilVisibleElement(swipeMenuButton);
+        swipeMenuButton.click();
+        return new SwipeScreen(driver);
     }
 }
