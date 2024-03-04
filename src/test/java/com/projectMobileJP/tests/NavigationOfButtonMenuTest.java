@@ -54,6 +54,10 @@ public class NavigationOfButtonMenuTest extends BaseTest {
         SwipeScreen swipeScreen = formsScreen.clickSwipeMenuButton();
 
         // Verify that elements of the Swipe screen are displayed
+        Assert.assertTrue(swipeScreen.isSwipeHorizontalTitleDisplayed());
+        Assert.assertEquals(swipeScreen.getSwipeSwipeHorizontalTitleText(), SwipeScreen.SWIPE_TITLE_TEXT);
+        Assert.assertTrue(swipeScreen.isSwipeVerticalSubtitleDisplayed());
+        Assert.assertEquals(swipeScreen.getSwipeVerticalSubtitleText(), SwipeScreen.SWIPE_SUBTITLE_TEXT);
 
         // Click on the Drag button from the bottom menu
 
