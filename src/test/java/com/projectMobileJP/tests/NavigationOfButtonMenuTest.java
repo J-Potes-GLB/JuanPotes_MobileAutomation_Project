@@ -25,8 +25,6 @@ public class NavigationOfButtonMenuTest extends BaseTest {
 
     @Test
     public void navigateBottomMenu(){
-        // precondition();
-
         // Click on the Webview button from the bottom menu
         WebviewScreen webviewScreen = homeStartScreen.clickWebviewMenuButton();
 
@@ -50,6 +48,10 @@ public class NavigationOfButtonMenuTest extends BaseTest {
         FormsScreen formsScreen = loginScreen.clickFormsMenuButton();
 
         // Verify that elements of the Forms screen are displayed
+        Assert.assertTrue(formsScreen.isFormComponentsTitleDisplayed());
+        Assert.assertEquals(formsScreen.getFormTitleText(), FormsScreen.FORM_TITLE_TEXT);
+        Assert.assertTrue(formsScreen.isDropdownDisplayed());
+        Assert.assertEquals(formsScreen.getDropdownText(), FormsScreen.DROPDOWN_DEFAULT_TEXT);
 
         // Click on the Swipe button from the bottom menu
 
