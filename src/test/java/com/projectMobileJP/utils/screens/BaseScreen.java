@@ -63,6 +63,12 @@ public class BaseScreen {
         return element.isDisplayed();
     }
 
+    public void sendStringInputToElement(WebElement element, String input){
+        waitUntilVisibleElement(element);
+        element.click();
+        element.sendKeys(input);
+    }
+
     // Click on Bottom Menu Elements
     public WebviewScreen clickWebviewMenuButton() {
         waitUntilVisibleElement(webviewMenuButton);

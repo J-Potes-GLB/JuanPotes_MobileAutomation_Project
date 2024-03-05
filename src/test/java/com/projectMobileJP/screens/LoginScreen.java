@@ -66,4 +66,18 @@ public class LoginScreen extends BaseScreen {
         waitUntilVisibleElement(this.signupButton);
         this.signupButton.click();
     }
+
+    public void sendEmail(String email){
+        sendStringInputToElement(this.emailInput, email);
+    }
+
+    public void sendPassword(String password){
+        sendStringInputToElement(this.passwordInput, password);
+    }
+
+    public void sendConfirmationPassword(String password){
+        sendStringInputToElement(this.confirmPasswordInput, password);
+    }
+
+
 }

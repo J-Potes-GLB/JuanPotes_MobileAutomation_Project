@@ -31,10 +31,13 @@ public class SignUpTest extends BaseTest {
         Assert.assertTrue(loginScreen.isSignUpButtonDisplayed());
 
         // Input Email
+        loginScreen.sendEmail(email);
 
         // Input Password
+        loginScreen.sendPassword(password);
 
         // Input Confirm Password
+        loginScreen.sendConfirmationPassword(password);
 
         // Click on SIGN UP button
     }
