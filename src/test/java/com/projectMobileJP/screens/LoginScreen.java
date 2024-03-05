@@ -48,4 +48,9 @@ public class LoginScreen extends BaseScreen {
     public String getSignupTabButtonText(){
         return this.signupTabButton.getText();
     }
+
+    public void clickSignupTabButton(){
+        waitUntilVisibleElement(this.signupTabButton);
+        this.signupTabButton.click();
+    }
 }
