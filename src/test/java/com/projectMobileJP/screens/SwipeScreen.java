@@ -5,12 +5,21 @@ import com.projectMobileJP.utils.screens.BaseScreen;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
+
+import java.util.List;
 
 public class SwipeScreen extends BaseScreen {
     public static final String SWIPE_TITLE_TEXT = "Swipe horizontal";
     public static final String SWIPE_SUBTITLE_TEXT = "Or swipe vertical to find what I'm hiding.";
+    public static final String TITLE_CARD_1_TEXT = "FULLY OPEN SOURCE";
+    public static final String TITLE_CARD_2_TEXT = "GREAT COMMUNITY";
+    public static final String TITLE_CARD_3_TEXT = "JS.FOUNDATION";
+    public static final String TITLE_CARD_4_TEXT = "SUPPORT VIDEOS";
+    public static final String TITLE_CARD_5_TEXT = "EXTENDABLE";
+    public static final String TITLE_CARD_6_TEXT = "COMPATIBLE";
 
     @AndroidFindBy(uiAutomator = "UiSelector().text(\"Swipe horizontal\")")
     private WebElement swipeHorizontalTitle;
@@ -30,6 +39,15 @@ public class SwipeScreen extends BaseScreen {
 
     @AndroidFindBy(uiAutomator = "UiSelector().text(\"JS.FOUNDATION\")")
     private WebElement titleCard3;
+
+    @AndroidFindBy(uiAutomator = "UiSelector().text(\"SUPPORT VIDEOS\")")
+    private WebElement titleCard4;
+
+    @AndroidFindBy(uiAutomator = "UiSelector().text(\"EXTENDABLE\")")
+    private WebElement titleCard5;
+
+    @AndroidFindBy(uiAutomator = "UiSelector().text(\"COMPATIBLE\")")
+    private WebElement titleCard6;
 
     public SwipeScreen(AndroidDriver driver) {
         super(driver);
@@ -51,7 +69,7 @@ public class SwipeScreen extends BaseScreen {
         return this.swipeVerticalSubtitle.getText();
     }
 
-    public void swipeCardLeft(){
+    public void swipeCardRight(){
         // Swipe code taken from Appium documentation
         // https://github.com/appium/appium-uiautomator2-driver/blob/master/docs/android-mobile-gestures.md
         ((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
@@ -61,13 +79,41 @@ public class SwipeScreen extends BaseScreen {
         ));
     }
 
-    public void swipeCardRight(){
-        // Swipe code taken from Appium documentation
-        // https://github.com/appium/appium-uiautomator2-driver/blob/master/docs/android-mobile-gestures.md
-        ((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
-                "elementId", ((RemoteWebElement) cardsCarrousel).getId(),
-                "direction", "right",
-                "percent", 0.75
-        ));
+    public boolean isTitleCardDisplayed(int cardNum){
+        WebElement element = getTitleCardElement(cardNum);
+        try {
+            return isElementDisplayed(element, false);
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
+
+    public String getTitleCardText(int cardNum){
+        WebElement element = getTitleCardElement(cardNum);
+        if(element != null){
+            return element.getText();
+        }
+        else {
+            return null;
+        }
+    }
+
+    private WebElement getTitleCardElement(int cardNum){
+        switch (cardNum){
+            case 1:
+                return this.titleCard1;
+            case 2:
+                return this.titleCard2;
+            case 3:
+                return this.titleCard3;
+            case 4:
+                return this.titleCard4;
+            case 5:
+                return this.titleCard5;
+            case 6:
+                return this.titleCard6;
+            default:
+                return null;
+        }
     }
 }
