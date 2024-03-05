@@ -19,8 +19,7 @@ public class DragScreen extends BaseScreen {
     }
 
     public boolean isDragAndDropTitleDisplayed(){
-        waitUntilVisibleElement(this.dragAndDropTitle);
-        return this.dragAndDropTitle.isDisplayed();
+        return isElementDisplayed(this.dragAndDropTitle);
     }
 
     public String getDragAndDropTitleText(){
@@ -28,7 +27,6 @@ public class DragScreen extends BaseScreen {
     }
 
     public boolean isRenewButtonDisplayed(){
-        waitUntilVisibleElement(this.renewButton);
-        return this.renewButton.isDisplayed();
+        return isElementDisplayed(this.renewButton);
     }
 }
