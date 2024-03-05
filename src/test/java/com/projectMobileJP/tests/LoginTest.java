@@ -1,6 +1,7 @@
 package com.projectMobileJP.tests;
 
 import com.projectMobileJP.utils.tests.BaseSignUpTest;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -25,12 +26,16 @@ public class LoginTest extends BaseSignUpTest {
         loginScreen.clickLoginTabButton();
 
         // Verify LOGIN button is displayed
+        Assert.assertTrue(loginScreen.isLoginButtonDisplayed());
 
         // Input Email
+        loginScreen.sendEmail(email);
 
         // Input Password
+        loginScreen.sendPassword(password);
 
         // Click on LOGIN button
+        loginScreen.clickLoginButton();
 
         // Verify the login was completed
     }

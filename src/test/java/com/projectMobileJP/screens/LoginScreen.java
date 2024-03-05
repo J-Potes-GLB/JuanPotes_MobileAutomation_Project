@@ -117,5 +117,14 @@ public class LoginScreen extends BaseScreen {
         this.okButton.click();
     }
 
+    public boolean isLoginButtonDisplayed(){
+        return isElementDisplayed(this.loginButton);
+    }
+
+    public void clickLoginButton(){
+        waitUntilVisibleElement(this.loginButton);
+        this.loginButton.click();
+    }
+
 
 }
