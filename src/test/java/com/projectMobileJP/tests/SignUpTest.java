@@ -40,5 +40,10 @@ public class SignUpTest extends BaseTest {
         loginScreen.sendConfirmationPassword(password);
 
         // Click on SIGN UP button
+        loginScreen.clickSignUpButton();
+
+        // Verify sign up was completed
+        Assert.assertTrue(loginScreen.isSignedUpMessageTitleDisplayed());
+        Assert.assertEquals(loginScreen.getSignedUpMessageTitleText(), LoginScreen.SIGNED_UP_COMPLETED_TEXT);
     }
 }

@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 public class LoginScreen extends BaseScreen {
     public static final String LOGIN_TAB_TEXT = "Login";
     public static final String SIGNUP_TAB_TEXT = "Sign up";
+    public static final String SIGNED_UP_COMPLETED_TEXT = "Signed Up!";
 
     @AndroidFindBy(xpath = "(//android.widget.TextView[@text=\"Login\"])[1]")
     private WebElement loginTabButton;
@@ -77,6 +78,14 @@ public class LoginScreen extends BaseScreen {
 
     public void sendConfirmationPassword(String password){
         sendStringInputToElement(this.confirmPasswordInput, password);
+    }
+
+    public boolean isSignedUpMessageTitleDisplayed(){
+        return isElementDisplayed(this.signedUpMessageTitle);
+    }
+
+    public String getSignedUpMessageTitleText(){
+        return this.signedUpMessageTitle.getText();
     }
 
 
