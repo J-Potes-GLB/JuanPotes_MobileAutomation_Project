@@ -1,5 +1,6 @@
 package com.projectMobileJP.tests;
 
+import com.projectMobileJP.screens.LoginScreen;
 import com.projectMobileJP.utils.tests.BaseSignUpTest;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -38,5 +39,8 @@ public class LoginTest extends BaseSignUpTest {
         loginScreen.clickLoginButton();
 
         // Verify the login was completed
+        Assert.assertTrue(loginScreen.isLoggedInMessageDisplayed());
+        Assert.assertEquals(loginScreen.getLoggedInMessageText(), LoginScreen.LOGGED_UP_COMPLETED_TEXT);
+        Assert.assertTrue(loginScreen.isOkButtonDisplayed());
     }
 }

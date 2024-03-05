@@ -9,6 +9,7 @@ public class LoginScreen extends BaseScreen {
     public static final String LOGIN_TAB_TEXT = "Login";
     public static final String SIGNUP_TAB_TEXT = "Sign up";
     public static final String SIGNED_UP_COMPLETED_TEXT = "Signed Up!";
+    public static final String LOGGED_UP_COMPLETED_TEXT = "You are logged in!";
 
     @AndroidFindBy(xpath = "(//android.widget.TextView[@text=\"Login\"])[1]")
     private WebElement loginTabButton;
@@ -36,6 +37,9 @@ public class LoginScreen extends BaseScreen {
 
     @AndroidFindBy(uiAutomator = "UiSelector().resourceId(\"android:id/button1\")")
     private WebElement okButton;
+
+    @AndroidFindBy(uiAutomator = "UiSelector().text(\"You are logged in!\")")
+    private WebElement loggedInMessage;
 
     public LoginScreen(AndroidDriver driver) {
         super(driver);
@@ -126,5 +130,11 @@ public class LoginScreen extends BaseScreen {
         this.loginButton.click();
     }
 
+    public boolean isLoggedInMessageDisplayed(){
+        return isElementDisplayed(this.loggedInMessage);
+    }
 
+    public String getLoggedInMessageText(){
+        return this.loggedInMessage.getText();
+    }
 }
