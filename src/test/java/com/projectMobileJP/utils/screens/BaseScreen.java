@@ -54,6 +54,8 @@ public class BaseScreen {
         return wait;
     }
 
+    // Returns a boolean indicating if the WebElement is displayed.
+    // The second parameter is a boolean to indicate if it should first wait for the element to be visible or not
     public boolean isElementDisplayed(WebElement element, boolean waitForElement){
         if(waitForElement){
             waitUntilVisibleElement(element);
