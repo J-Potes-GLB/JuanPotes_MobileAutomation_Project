@@ -46,7 +46,7 @@ public class LoginScreen extends BaseScreen {
     }
 
     public boolean isLoginTabButtonDisplayed(){
-        return isElementDisplayed(this.loginTabButton);
+        return isElementDisplayed(this.loginTabButton, true);
     }
 
     public String getLoginTabButtonText(){
@@ -59,7 +59,7 @@ public class LoginScreen extends BaseScreen {
     }
 
     public boolean isSignupTabButtonDisplayed(){
-        return isElementDisplayed(this.signupTabButton);
+        return isElementDisplayed(this.signupTabButton, true);
     }
 
     public String getSignupTabButtonText(){
@@ -72,7 +72,7 @@ public class LoginScreen extends BaseScreen {
     }
 
     public boolean isSignUpButtonDisplayed(){
-        return isElementDisplayed(this.signupButton);
+        return isElementDisplayed(this.signupButton, true);
     }
 
     public void clickSignUpButton(){
@@ -105,7 +105,7 @@ public class LoginScreen extends BaseScreen {
     }
 
     public boolean isSignedUpMessageTitleDisplayed(){
-        return isElementDisplayed(this.signedUpMessageTitle);
+        return isElementDisplayed(this.signedUpMessageTitle, true);
     }
 
     public String getSignedUpMessageTitleText(){
@@ -113,7 +113,7 @@ public class LoginScreen extends BaseScreen {
     }
 
     public boolean isOkButtonDisplayed(){
-        return isElementDisplayed(this.okButton);
+        return isElementDisplayed(this.okButton, true);
     }
 
     public void clickOkButton(){
@@ -122,7 +122,7 @@ public class LoginScreen extends BaseScreen {
     }
 
     public boolean isLoginButtonDisplayed(){
-        return isElementDisplayed(this.loginButton);
+        return isElementDisplayed(this.loginButton, true);
     }
 
     public void clickLoginButton(){
@@ -131,7 +131,7 @@ public class LoginScreen extends BaseScreen {
     }
 
     public boolean isLoggedInMessageDisplayed(){
-        return isElementDisplayed(this.loggedInMessage);
+        return isElementDisplayed(this.loggedInMessage, true);
     }
 
     public String getLoggedInMessageText(){

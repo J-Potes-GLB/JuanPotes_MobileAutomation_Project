@@ -20,7 +20,7 @@ public class WebviewScreen extends BaseScreen {
     }
 
     public boolean isGetStartedButtonDisplayed(){
-        return isElementDisplayed(this.getStartedButton);
+        return isElementDisplayed(this.getStartedButton, true);
     }
 
     public String getGetStartedButtonText(){
@@ -28,7 +28,7 @@ public class WebviewScreen extends BaseScreen {
     }
 
     public boolean isSearchButtonDisplayed(){
-        return isElementDisplayed(this.searchButton);
+        return isElementDisplayed(this.searchButton, true);
     }
 
     public String getSearchButtonText(){

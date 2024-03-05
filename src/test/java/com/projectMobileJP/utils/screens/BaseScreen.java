@@ -58,8 +58,10 @@ public class BaseScreen {
         driver.manage().timeouts().implicitlyWait(seconds, TimeUnit.SECONDS);
     }
 
-    public boolean isElementDisplayed(WebElement element){
-        waitUntilVisibleElement(element);
+    public boolean isElementDisplayed(WebElement element, boolean waitForElement){
+        if(waitForElement){
+            waitUntilVisibleElement(element);
+        }
         return element.isDisplayed();
     }
 

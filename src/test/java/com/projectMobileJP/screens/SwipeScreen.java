@@ -22,12 +22,21 @@ public class SwipeScreen extends BaseScreen {
     @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"Carousel\"]/android.view.ViewGroup/android.view.ViewGroup")
     private WebElement cardsCarrousel;
 
+    @AndroidFindBy(uiAutomator = "UiSelector().text(\"FULLY OPEN SOURCE\")")
+    private WebElement titleCard1;
+
+    @AndroidFindBy(uiAutomator = "UiSelector().text(\"GREAT COMMUNITY\")")
+    private WebElement titleCard2;
+
+    @AndroidFindBy(uiAutomator = "UiSelector().text(\"JS.FOUNDATION\")")
+    private WebElement titleCard3;
+
     public SwipeScreen(AndroidDriver driver) {
         super(driver);
     }
 
     public boolean isSwipeHorizontalTitleDisplayed(){
-        return isElementDisplayed(this.swipeHorizontalTitle);
+        return isElementDisplayed(this.swipeHorizontalTitle, true);
     }
 
     public String getSwipeSwipeHorizontalTitleText(){
@@ -35,7 +44,7 @@ public class SwipeScreen extends BaseScreen {
     }
 
     public boolean isSwipeVerticalSubtitleDisplayed(){
-        return isElementDisplayed(this.swipeVerticalSubtitle);
+        return isElementDisplayed(this.swipeVerticalSubtitle, true);
     }
 
     public String getSwipeVerticalSubtitleText(){
@@ -48,6 +57,16 @@ public class SwipeScreen extends BaseScreen {
         ((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
                 "elementId", ((RemoteWebElement) cardsCarrousel).getId(),
                 "direction", "left",
+                "percent", 0.75
+        ));
+    }
+
+    public void swipeCardRight(){
+        // Swipe code taken from Appium documentation
+        // https://github.com/appium/appium-uiautomator2-driver/blob/master/docs/android-mobile-gestures.md
+        ((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement) cardsCarrousel).getId(),
+                "direction", "right",
                 "percent", 0.75
         ));
     }
