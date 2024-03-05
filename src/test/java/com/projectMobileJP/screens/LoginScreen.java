@@ -34,6 +34,9 @@ public class LoginScreen extends BaseScreen {
     @AndroidFindBy(uiAutomator = "UiSelector().resourceId(\"android:id/alertTitle\")")
     private WebElement signedUpMessageTitle;
 
+    @AndroidFindBy(uiAutomator = "UiSelector().resourceId(\"android:id/button1\")")
+    private WebElement okButton;
+
     public LoginScreen(AndroidDriver driver) {
         super(driver);
     }
@@ -86,6 +89,15 @@ public class LoginScreen extends BaseScreen {
 
     public String getSignedUpMessageTitleText(){
         return this.signedUpMessageTitle.getText();
+    }
+
+    public boolean isOkButtonDisplayed(){
+        return isElementDisplayed(this.okButton);
+    }
+
+    public void clickOkButton(){
+        waitUntilVisibleElement(this.okButton);
+        this.okButton.click();
     }
 
 
