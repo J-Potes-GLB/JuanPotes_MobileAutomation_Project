@@ -20,6 +20,7 @@ public class SwipeScreen extends BaseScreen {
     public static final String TITLE_CARD_4_TEXT = "SUPPORT VIDEOS";
     public static final String TITLE_CARD_5_TEXT = "EXTENDABLE";
     public static final String TITLE_CARD_6_TEXT = "COMPATIBLE";
+    public static final String YOU_FOUND_ME_TEXT = "You found me!!!";
 
     @AndroidFindBy(uiAutomator = "UiSelector().text(\"Swipe horizontal\")")
     private WebElement swipeHorizontalTitle;
@@ -49,6 +50,9 @@ public class SwipeScreen extends BaseScreen {
     @AndroidFindBy(uiAutomator = "UiSelector().text(\"COMPATIBLE\")")
     private WebElement titleCard6;
 
+    @AndroidFindBy(uiAutomator = "UiSelector().text(\"You found me!!!\")")
+    private WebElement youFoundMeMessage;
+
     public SwipeScreen(AndroidDriver driver) {
         super(driver);
     }
@@ -76,6 +80,16 @@ public class SwipeScreen extends BaseScreen {
                 "elementId", ((RemoteWebElement) cardsCarrousel).getId(),
                 "direction", "left",
                 "percent", 0.75
+        ));
+    }
+
+    public void swipeDown(){
+        // Swipe code taken from Appium documentation
+        // https://github.com/appium/appium-uiautomator2-driver/blob/master/docs/android-mobile-gestures.md
+        ((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
+                "left", 100, "top", 100, "width", 200, "height", 200,
+                "direction", "up",
+                "percent", 1.0
         ));
     }
 
@@ -115,5 +129,17 @@ public class SwipeScreen extends BaseScreen {
             default:
                 return null;
         }
+    }
+
+    public boolean isYouFoundMeMessageDisplayed(){
+        try {
+            return isElementDisplayed(this.youFoundMeMessage, false);
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
+
+    public String getYouFindMeMessageText(){
+        return this.youFoundMeMessage.getText();
     }
 }

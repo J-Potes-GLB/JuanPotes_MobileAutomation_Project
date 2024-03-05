@@ -2,12 +2,14 @@ package com.projectMobileJP.tests;
 
 import com.projectMobileJP.screens.SwipeScreen;
 import com.projectMobileJP.utils.tests.BaseTest;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class SwipeCardsTest extends BaseTest {
     private SwipeScreen swipeScreen;
+    private final int SWIPE_DOWN_ITERATIONS = 5;
 
     @BeforeMethod
     public void openSwipeScreen(){
@@ -22,7 +24,12 @@ public class SwipeCardsTest extends BaseTest {
     }
 
     @Test
-    public void executeSwipingOfCard(){
+    public void executeSwiping(){
+        executeLeftSwipingOfCard();
+        executeDownSwipe();
+    }
+
+    private void executeLeftSwipingOfCard(){
         // Verify first card title is displayed
         Assert.assertTrue(swipeScreen.isTitleCardDisplayed(1));
         Assert.assertEquals(swipeScreen.getTitleCardText(1), SwipeScreen.TITLE_CARD_1_TEXT);
@@ -76,5 +83,16 @@ public class SwipeCardsTest extends BaseTest {
         Assert.assertFalse(swipeScreen.isTitleCardDisplayed(3));
         Assert.assertFalse(swipeScreen.isTitleCardDisplayed(2));
         Assert.assertFalse(swipeScreen.isTitleCardDisplayed(1));
+    }
+
+    private void executeDownSwipe() {
+        // Swipe down several times
+        for (int i = 0; i < SWIPE_DOWN_ITERATIONS; i++){
+            swipeScreen.swipeDown();
+        }
+
+        // Verify the "You found me" message is displayed
+        Assert.assertTrue(swipeScreen.isYouFoundMeMessageDisplayed());
+        Assert.assertEquals(swipeScreen.getYouFindMeMessageText(), SwipeScreen.YOU_FOUND_ME_TEXT);
     }
 }
