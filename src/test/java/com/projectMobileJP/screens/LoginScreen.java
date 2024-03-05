@@ -75,12 +75,24 @@ public class LoginScreen extends BaseScreen {
         sendStringInputToElement(this.emailInput, email);
     }
 
+    public void clearEmailField(){
+        this.emailInput.clear();
+    }
+
     public void sendPassword(String password){
         sendStringInputToElement(this.passwordInput, password);
     }
 
+    public void clearPasswordField(){
+        this.passwordInput.clear();
+    }
+
     public void sendConfirmationPassword(String password){
         sendStringInputToElement(this.confirmPasswordInput, password);
+    }
+
+    public void clearConfirmationPasswordField(){
+        this.confirmPasswordInput.clear();
     }
 
     public boolean isSignedUpMessageTitleDisplayed(){
