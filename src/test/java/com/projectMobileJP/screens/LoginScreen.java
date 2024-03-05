@@ -12,23 +12,26 @@ public class LoginScreen extends BaseScreen {
     @AndroidFindBy(xpath = "(//android.widget.TextView[@text=\"Login\"])[1]")
     private WebElement loginTabButton;
 
-    private WebElement loginEmailInput;
-
-    private WebElement loginPasswordInput;
-
+    @AndroidFindBy(uiAutomator = "UiSelector().description(\"button-LOGIN\")")
     private WebElement loginButton;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Sign up\"]")
     private WebElement signupTabButton;
 
-    private WebElement signupEmailInput;
+    @AndroidFindBy(uiAutomator = "UiSelector().description(\"input-email\")")
+    private WebElement emailInput;
 
-    private WebElement signupPasswordInput;
+    @AndroidFindBy(uiAutomator = "UiSelector().description(\"input-password\")")
+    private WebElement passwordInput;
 
-    private WebElement signupConfirmPasswordInput;
+    @AndroidFindBy(uiAutomator = "UiSelector().description(\"input-repeat-password\")")
+    private WebElement confirmPasswordInput;
 
     @AndroidFindBy(uiAutomator = "UiSelector().description(\"button-SIGN UP\")")
     private WebElement signupButton;
+
+    @AndroidFindBy(uiAutomator = "UiSelector().resourceId(\"android:id/alertTitle\")")
+    private WebElement signedUpMessageTitle;
 
     public LoginScreen(AndroidDriver driver) {
         super(driver);
