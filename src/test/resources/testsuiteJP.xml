@@ -8,6 +8,7 @@
             <class name="com.projectMobileJP.tests.NavigationOfButtonMenuTest"></class>
             <class name="com.projectMobileJP.tests.SignUpTest"></class>
             <class name="com.projectMobileJP.tests.LoginTest"></class>
+            <class name="com.projectMobileJP.tests.SwipeCardsTest"></class>
         </classes>
     </test>
 </suite>

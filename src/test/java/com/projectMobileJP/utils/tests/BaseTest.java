@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     private static final String PROPERTIES_FILE = "src/test/resources/config.properties";
@@ -39,6 +40,7 @@ public class BaseTest {
 
     @AfterMethod
     public void quitApp(){
+        waitSeconds(1);
         driver.quit();
     }
 
@@ -74,5 +76,9 @@ public class BaseTest {
         // Verify the title of the Home screen is displayed
         Assert.assertTrue(homeStartScreen.isTitleDisplayed());
         Assert.assertTrue(homeStartScreen.areImagesDisplayed());
+    }
+
+    public void waitSeconds(int seconds){
+        driver.manage().timeouts().implicitlyWait(seconds, TimeUnit.SECONDS);
     }
 }

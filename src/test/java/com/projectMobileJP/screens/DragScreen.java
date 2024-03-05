@@ -19,7 +19,7 @@ public class DragScreen extends BaseScreen {
     }
 
     public boolean isDragAndDropTitleDisplayed(){
-        return isElementDisplayed(this.dragAndDropTitle);
+        return isElementDisplayed(this.dragAndDropTitle, true);
     }
 
     public String getDragAndDropTitleText(){
@@ -27,6 +27,6 @@ public class DragScreen extends BaseScreen {
     }
 
     public boolean isRenewButtonDisplayed(){
-        return isElementDisplayed(this.renewButton);
+        return isElementDisplayed(this.renewButton, true);
     }
 }
