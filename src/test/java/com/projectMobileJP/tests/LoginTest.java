@@ -22,6 +22,7 @@ public class LoginTest extends BaseSignUpTest {
     @Parameters({"email", "password"})
     public void successfulLogin(String email, String password){
         // Click on Login Tab
+        loginScreen.clickLoginTabButton();
 
         // Verify LOGIN button is displayed
 
