@@ -28,11 +28,14 @@ public class SignUpTest extends BaseTest {
         loginScreen.clickSignupTabButton();
 
         // Verify SIGN UP button is displayed
+        Assert.assertTrue(loginScreen.isSignUpButtonDisplayed());
 
         // Input Email
 
         // Input Password
 
         // Input Confirm Password
+
+        // Click on SIGN UP button
     }
 }

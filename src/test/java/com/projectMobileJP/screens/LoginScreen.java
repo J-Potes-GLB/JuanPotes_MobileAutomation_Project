@@ -27,6 +27,7 @@ public class LoginScreen extends BaseScreen {
 
     private WebElement signupConfirmPasswordInput;
 
+    @AndroidFindBy(uiAutomator = "UiSelector().description(\"button-SIGN UP\")")
     private WebElement signupButton;
 
     public LoginScreen(AndroidDriver driver) {
@@ -52,5 +53,14 @@ public class LoginScreen extends BaseScreen {
     public void clickSignupTabButton(){
         waitUntilVisibleElement(this.signupTabButton);
         this.signupTabButton.click();
+    }
+
+    public boolean isSignUpButtonDisplayed(){
+        return isElementDisplayed(this.signupButton);
+    }
+
+    public void clickSignUpButton(){
+        waitUntilVisibleElement(this.signupButton);
+        this.signupButton.click();
     }
 }
